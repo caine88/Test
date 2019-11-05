@@ -1,0 +1,29 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Clean') {
+         steps {
+            bat 'rmdir /q /s Test'
+         }
+      }  
+       
+      stage('Clone') {
+         steps {
+            bat 'git clone https://github.com/caine88/Test.git'
+         }
+      }
+      
+      stage('Build') {
+         steps {
+            echo 'Build'
+         }
+      }
+      
+      stage('Test') {
+         steps {
+            echo 'Test'
+         }
+      }
+   }
+}
